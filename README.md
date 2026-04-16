@@ -1,8 +1,5 @@
 <h3 align="center">CIC-DDoS2019 NIDS Classifier</h3>
 <p align="center">Machine learning based network intrusion detection for a university cybersecurity assignment</p>
-<p align="center">
-  CIC-DDoS2019 subset | Multiclass traffic classification | Logistic Regression and Decision Tree
-</p>
 
 ---
 
@@ -18,13 +15,29 @@ The current version uses four classes:
 
 ## How it works
 
-**Dataset selection** -> the script reads selected CIC-DDoS2019 CSV files -> samples a manageable subset of benign and attack flows -> keeps useful numeric flow features.
+**Dataset selection**
+- The script reads three CIC-DDoS2019 CSV files: `Syn.csv`, `DrDoS_DNS.csv`, and `TFTP.csv`
+- It collects `BENIGN` rows that already exist inside those files
+- Because the original dataset is very large, the script samples a smaller subset so it can be trained locally without needing extreme compute or storage
+- It keeps useful numeric flow features such as packet counts, flow duration, flag counts, packet length statistics, and inbound traffic indicators
 
-**Training** -> the dataset is cleaned -> split into training and testing data -> two machine learning models are trained:
-- Logistic Regression
-- Decision Tree
+**Training**
+- The dataset is cleaned by converting feature values into numbers and removing invalid values such as missing entries or infinite values
+- The traffic labels are converted into class IDs so the machine learning models can work with them
+- The data is split into training and testing sets
+- The training set is used to teach the models patterns in the network traffic
+- The testing set is kept separate so the final results show how well the models perform on unseen data
+- Two machine learning models are trained:
+  - Logistic Regression
+  - Decision Tree
 
-**Evaluation** -> both models are measured using accuracy, precision, recall, and F1 score -> confusion matrices, a class distribution chart, a feature importance chart, and a model comparison chart are saved in the `output` folder.
+**Evaluation**
+- Both models are evaluated using accuracy, precision, recall, and F1 score
+- Confusion matrices are saved to show which classes are being predicted correctly and which classes are being confused with each other
+- Normalized confusion matrices are saved so the class-by-class performance is easier to compare
+- A class distribution chart is saved to show how many rows belong to each traffic class
+- A Decision Tree feature importance chart is saved to show which flow features had the biggest influence on the classifier
+- A model comparison chart is saved in the `output` folder so the two methods can be compared visually
 
 ## Dataset
 
@@ -72,13 +85,13 @@ The Decision Tree performed slightly better overall, while both models showed th
 
 ![Decision Tree Confusion Matrix](output/confusion_matrix_decision_tree.png)
 
-### Normalized Logistic Regression Confusion Matrix
+### Normalised Logistic Regression Confusion Matrix
 
-![Normalized Logistic Regression Confusion Matrix](output/normalized_confusion_matrix_logistic_regression.png)
+![Normalised Logistic Regression Confusion Matrix](output/normalized_confusion_matrix_logistic_regression.png)
 
-### Normalized Decision Tree Confusion Matrix
+### Normalised Decision Tree Confusion Matrix
 
-![Normalized Decision Tree Confusion Matrix](output/normalized_confusion_matrix_decision_tree.png)
+![Normalised Decision Tree Confusion Matrix](output/normalized_confusion_matrix_decision_tree.png)
 
 ### Decision Tree Feature Importance
 
@@ -91,9 +104,9 @@ The Decision Tree performed slightly better overall, while both models showed th
 ## Project Structure
 
 ```text
-.
 |-- ids_project.py
 |-- README.md
+|-- requirements.txt
 |-- training data/
 |   |-- Syn.csv
 |   |-- DrDoS_DNS.csv
@@ -115,7 +128,7 @@ The Decision Tree performed slightly better overall, while both models showed th
 1. Install the required Python packages:
 
 ```bash
-pip install pandas numpy scikit-learn matplotlib
+pip install -r requirements.txt
 ```
 
 2. Download the required dataset files and place them in `training data/`.
@@ -127,14 +140,3 @@ python ids_project.py
 ```
 
 4. Check the generated graphs and CSV files in the `output` folder.
-
-## Notes
-
-- This project follows the assignment option of using an **open source dataset**
-- The script uses a sampled subset of the full CIC-DDoS2019 files to make local training practical
-- The output folder contains report ready graphs and result tables
-
-## Author
-
-Adrian  
-University cybersecurity assignment project

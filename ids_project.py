@@ -1,10 +1,10 @@
 """
-This program is a machine-learning-based network intrusion detection system.
+This program is a machine learning based network intrusion detection system.
 It uses the CIC-DDoS2019 dataset, which is a larger labelled intrusion detection
 dataset.
 
 I selected three attack files from the dataset: Syn, DrDoS_DNS, and TFTP. I
-also used the BENIGN rows that already exist inside those files. That gives me
+used the BENIGN rows that already exist inside those files. That gives me
 four classes in total: BENIGN, Syn, DrDoS_DNS, and TFTP.
 
 The program reads those CSV files, samples a manageable subset, cleans the
@@ -20,12 +20,12 @@ is a simple baseline model. The second is a Decision Tree, which is a stronger
 rule-based model.
 
 At the end, the program evaluates both models using accuracy, precision,
-recall, and F1 score. It also saves confusion matrices, a class distribution
+recall, and F1 score. It saves confusion matrices, a class distribution
 graph, a model comparison graph, and a Decision Tree feature importance graph
 in the output folder.
 
 I used this version because it follows the assignment option of using an
-open-source dataset, and it gives more meaningful IDS results than my original
+open source dataset, and it gives more meaningful IDS results than my original
 small packet capture files.
 """
 
