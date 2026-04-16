@@ -287,14 +287,14 @@ def main() -> None:
     save_confusion_matrix(cm_dt, "Confusion Matrix - Decision Tree", "confusion_matrix_decision_tree.png")
     save_confusion_matrix(
         cm_lr,
-        "Normalized Confusion Matrix - Logistic Regression",
-        "normalized_confusion_matrix_logistic_regression.png",
+        "Normalised Confusion Matrix - Logistic Regression",
+        "normalised_confusion_matrix_logistic_regression.png",
         normalize=True,
     )
     save_confusion_matrix(
         cm_dt,
-        "Normalized Confusion Matrix - Decision Tree",
-        "normalized_confusion_matrix_decision_tree.png",
+        "Normalised Confusion Matrix - Decision Tree",
+        "normalised_confusion_matrix_decision_tree.png",
         normalize=True,
     )
     save_feature_importance_chart(dt_model, feature_names)

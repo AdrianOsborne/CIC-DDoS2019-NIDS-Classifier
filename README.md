@@ -77,10 +77,10 @@ The Decision Tree performed slightly better overall, while both models showed th
 ![Decision Tree Confusion Matrix](output/confusion_matrix_decision_tree.png)
 
 ### Normalised Logistic Regression Confusion Matrix
-![Normalised Logistic Regression Confusion Matrix](output/normalized_confusion_matrix_logistic_regression.png)
+![Normalised Logistic Regression Confusion Matrix](output/normalised_confusion_matrix_logistic_regression.png)
 
 ### Normalised Decision Tree Confusion Matrix
-![Normalised Decision Tree Confusion Matrix](output/normalized_confusion_matrix_decision_tree.png)
+![Normalised Decision Tree Confusion Matrix](output/normalised_confusion_matrix_decision_tree.png)
 
 ### Decision Tree Feature Importance
 ![Decision Tree Feature Importance](output/decision_tree_feature_importance.png)
@@ -105,8 +105,8 @@ The Decision Tree performed slightly better overall, while both models showed th
     |-- labelled_ids_dataset.csv
     |-- model_performance_comparison.png
     |-- model_results_summary.csv
-    |-- normalized_confusion_matrix_decision_tree.png
-    `-- normalized_confusion_matrix_logistic_regression.png
+    |-- normalised_confusion_matrix_decision_tree.png
+    `-- normalised_confusion_matrix_logistic_regression.png
 ```
 
 ## Running the project
